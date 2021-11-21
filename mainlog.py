@@ -1,6 +1,7 @@
-# HangmanPython
+# Hangman Attempt
 
 # Imports
+# sourcery skip: for-index-underscore
 import hangstages as hs
 import time
 import random
@@ -11,7 +12,7 @@ with open("D:\\OldFiles\\FullTop\\LeetcodeAttempt\\hangman\\wordBank.txt", "r+")
 
 conf = hs.config(True)
 currRes = round(conf["desiredWidth"]/10)*10
-startText = "Welcome to my Python 3.9 Implementation of Hangman"
+startText = "Welcome to my Python 3 Implementation of Hangman"
 customSpace = " " * ((currRes-len(startText))//2)
 word = random.choice(wordBank) + " " + \
     random.choice(wordBank) + " " + random.choice(wordBank)
@@ -57,10 +58,9 @@ while status == "playing":
             print("\n" + hiddenPhrase + "\n")
             status = "win"
 
-match status:
-    case "win":
-        print(f"You guessed the secret word in only {guesses} guesses!\n")
-    case "loss":
-        print(f"You Ran of Lives! The secret word was {word}!")
-    case "error":
-        print(newPhrase)
+if status == "error":
+    print(newPhrase)
+elif status == "loss":
+    print(f"You Ran of Lives! The secret word was {word}!")
+elif status == "win":
+    print(f"You guessed the secret word in only {guesses} guesses!\n")
