@@ -1,7 +1,6 @@
-# Hangman Attempt
+# HangmanPython
 
 # Imports
-# sourcery skip: for-index-underscore
 import hangstages as hs
 import time
 import random
